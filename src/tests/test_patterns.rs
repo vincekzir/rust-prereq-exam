@@ -95,7 +95,7 @@ mod tests {
 
     #[test]
     fn test_pattern_4() {
-        assert_eq!(pattern_4("BLOCK"), "BCKLMO");
+        assert_eq!(pattern_4("BLOKC"), "BCKLO");
         assert_eq!(pattern_4("HELLO"), "EHLLO");
         assert_eq!(pattern_4("EDCBA"), "ABCDE");
     }
