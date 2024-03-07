@@ -53,13 +53,13 @@ mod tests {
     use super::*;
 
     #[test]
-    fn test_u32_parse() {
+    fn test_parse_string_to_u32() {
         assert!(parse_string_to_u32("2", &2));
         assert!(parse_string_to_u32("2024", &2024));
     }
 
     #[test]
-    fn test_u128_parse() {
+    fn test_uparse_u32_to_u128() {
         let (a, c): (u32, u32) = (12, 60);
         let (b, d): (u128, u128) = (12, 60);
         assert!(parse_u32_to_u128(a, b));
@@ -67,7 +67,7 @@ mod tests {
     }
 
     #[test]
-    fn test_i32_parse() {
+    fn test_parse_u32_to_i32() {
         let (a, c): (u32, u32) = (1, 55);
         let (b, d): (i32, i32) = (-1, -55);
         assert!(parse_u32_to_i32(a, b));
@@ -75,13 +75,13 @@ mod tests {
     }
 
     #[test]
-    fn test_f32_parse() {
+    fn test_parse_u32_to_f32() {
         assert!(parse_u32_to_f32(32, 32.0));
         assert!(parse_u32_to_f32(14, 14.0));
     }
 
     #[test]
-    fn test_string_parse() {
+    fn test_parse_u32_to_string() {
         assert!(parse_u32_to_string(&5, "5"));
         assert!(parse_u32_to_string(&10, "10"));
     }
