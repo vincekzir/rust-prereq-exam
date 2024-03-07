@@ -25,7 +25,7 @@ pub fn parse_u128(a: u32, b: u128) -> bool {
 // - b: The expected signed integer 32.
 // Returns: true if the parsed value matches the expected value, false otherwise.
 pub fn parse_i32(a: u32, b: i32) -> bool {
-    todo!("Parse unsigned integer 32 to signed integer 32 for this and reverse the sign, return true if matched.")
+    todo!("Parse unsigned integer to signed integer 32 for this test, return true if matched.")
 }
 
 // Function: parse_f32
@@ -68,8 +68,8 @@ mod tests {
 
     #[test]
     fn test_i32_parse() {
-        let (a, c): (u32, u32) = (1, -55);
-        let (b, d): (i32, i32) = (-1, 55);
+        let (a, c): (u32, u32) = (1, 55);
+        let (b, d): (i32, i32) = (-1, -55);
         assert!(parse_i32(a, b));
         assert!(parse_i32(c, d));
     }
