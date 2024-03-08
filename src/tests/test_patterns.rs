@@ -4,7 +4,12 @@
 // - input: A vector of strings.
 // Returns: True if the last two strings in the vector start with `BLOKC`, false otherwise.
 pub fn pattern_1(input: Vec<String>) -> bool {
-    todo!("Returns true if the last two strings in the vector start with `BLOKC`.");
+    // Check if input has at least 2 elements
+    if input.len() < 2 {
+        return false 
+    }
+     // Check if the second-to-last element ends with "BLOKC" and the last element starts with "BLOKC"
+    return &input[input.len() - 2][..5] == "BLOKC" && input[input.len() - 1].starts_with("BLOKC");
 }
 
 // Function: pattern_2
@@ -13,7 +18,11 @@ pub fn pattern_1(input: Vec<String>) -> bool {
 // - input: A vector of strings.
 // Returns: True if the first and last string in the vector start with `BLOKC`, false otherwise.
 pub fn pattern_2(input: Vec<String>) -> bool {
-    todo!("Returns true if the first and last string in the vector start with `BLOKC`.");
+     if input.len() < 2 {
+        return false;
+    }
+    // Check if the first element starts with "BLOKC" and the last element starts with "BLOKC"
+    return &input[0][..5] == "BLOKC" && input[input.len() - 1].starts_with("BLOKC"); // Two ways to do splicing
 }
 
 // Function: pattern_3
@@ -22,7 +31,14 @@ pub fn pattern_2(input: Vec<String>) -> bool {
 // - input: A string.
 // Returns: True if a string contains all the letters of the word 'BLOKC', false otherwise.
 pub fn pattern_3(input: &str) -> bool {
-    todo!("Returns true if a string that contains all the letters of the word 'BLOKC'");
+    // Iterate over each character in the string "BLOKC"
+    for letter in "BLOKC".chars() {
+        // Check if the input string contains the current letter
+        if !input.contains(letter) {
+            return false;  // Return false if the input string does not contain the current letter
+        }
+    }
+    true // Return true if all letters in "BLOKC" are found
 }
 
 // Function: pattern_4
@@ -30,8 +46,20 @@ pub fn pattern_3(input: &str) -> bool {
 // Parameters:
 // - input: A string.
 // Returns: A string that rearranges its characters in alphabetical order.
-pub fn pattern_4(input: &str) -> &str {
-    todo!("Returns a string that rearranges its characters in alphabetic order");
+pub fn pattern_4(input: &str) -> String {
+    let mut char_vec: Vec<char> = input.chars().collect();   // Convert the input string into a vector of characters
+    char_vec.sort(); // Sort the characters in ascending order
+    char_vec.into_iter().collect() // Convert the sorted characters back into a string and return
+
+    // Another way to do it??
+    // for i in 0..char_vec.len() {
+    //     for j in (i + 1)..char_vec.len() {
+    //         if char_vec[i] > char_vec[j] {
+    //             char_vec.swap(i, j);
+    //         }
+    //     }
+    // }
+    // char_vec.into_iter().collect()
 }
 
 // Function: pattern_5
@@ -39,8 +67,19 @@ pub fn pattern_4(input: &str) -> &str {
 // Parameters:
 // - input: A string.
 // Returns: A string with characters similar to the first character converted.
-pub fn pattern_5(input: &str) -> &str {
-    todo!("Returns a string that had the following characters converted similar to the first character");
+pub fn pattern_5(input: &str) -> String {
+    let mut char_vec: Vec<char> = input.chars().collect();  // Convert the input string into a vector of characters
+    
+    // Check if the vector is not empty, and get the first character
+    if let Some(&f_char) = char_vec.first() {
+        // Replace all characters in the vector except the first one with the first character
+        for i in 1..char_vec.len() {
+            char_vec[i] = f_char; 
+            }
+        }
+    
+    // Convert the 'new' vector back into a string and return it
+    char_vec.into_iter().collect()
 }
 
 #[cfg(test)]
@@ -64,6 +103,25 @@ mod tests {
 		];
 		assert!(!pattern_1(strs_2));
 	}
+
+    // For Another Testing
+    // #[test]
+	// fn test_pattern_1() {
+	// 	let strs_1 = vec![
+	// 		"HELLO".to_string(),
+	// 		"RUST".to_string(),
+	// 		"BLOKC".to_string(),
+	// 		"BLOKCCHANG".to_string(),
+	// 	];
+	// 	assert!(pattern_1(strs_1));
+
+    //     let strs_2 = vec![
+	// 		"BLOKCS".to_string(),
+	// 		"WORLD".to_string(),
+	// 		"BLOKC".to_string(),
+	// 	];
+	// 	assert!(!pattern_1(strs_2));
+	// }
 
     #[test]
     fn test_pattern_2() {
