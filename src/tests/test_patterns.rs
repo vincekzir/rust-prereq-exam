@@ -48,6 +48,7 @@ pub fn pattern_3(input: &str) -> bool {
 // Returns: A string that rearranges its characters in alphabetical order.
 pub fn pattern_4(input: &str) -> String {
     let mut char_vec: Vec<char> = input.chars().collect();   // Convert the input string into a vector of characters
+    
     char_vec.sort(); // Sort the characters in ascending order
     char_vec.into_iter().collect() // Convert the sorted characters back into a string and return
 
