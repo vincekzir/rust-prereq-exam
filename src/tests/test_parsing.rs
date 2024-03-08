@@ -5,7 +5,7 @@
 // - b: The expected unsigned integer 32.
 // Returns: true if the parsed value matches the expected value, false otherwise.
 pub fn parse_string_to_u32(a: &str, b: &u32) -> bool {
-    let parsed_32: u32 = a.parse().unwrap();
+    let parsed_32: u32 = a.parse().unwrap();  // Parses a string to a u32 w/ direct casting
     parsed_32.eq(b)
 }
 
@@ -16,7 +16,7 @@ pub fn parse_string_to_u32(a: &str, b: &u32) -> bool {
 // - b: The expected unsigned integer 128.
 // Returns: true if the converted value matches the expected value, false otherwise.
 pub fn parse_u32_to_u128(a: u32, b: u128) -> bool {
-    let parsed_128: u128 = a as u128;
+    let parsed_128: u128 = a as u128;  // Converts a u32 to a u128 through direct casting
     parsed_128.eq(&b)
 }
 
@@ -27,7 +27,7 @@ pub fn parse_u32_to_u128(a: u32, b: u128) -> bool {
 // - b: The expected signed integer 32.
 // Returns: true if the parsed value matches the expected value, false otherwise.
 pub fn parse_u32_to_i32(a: u32, b: i32) -> bool {
-    let parsed_i32: i32 = a as i32;
+    let parsed_i32: i32 = a as i32;  // Converts a u32 to an i32 through direct casting
     parsed_i32.eq(&b)
 
     // if let Ok(parsed_i32) = i32::try_from(a) {
@@ -44,7 +44,7 @@ pub fn parse_u32_to_i32(a: u32, b: i32) -> bool {
 // - b: The expected float 32.
 // Returns: true if the converted value matches the expected value, false otherwise.
 pub fn parse_u32_to_f32(a: u32, b: f32) -> bool {
-    let parsed_f32: f32 = a as f32;
+    let parsed_f32: f32 = a as f32;  // Converts a u32 to an f32 through direct casting
     parsed_f32.eq(&b)
 }
 
@@ -55,7 +55,7 @@ pub fn parse_u32_to_f32(a: u32, b: f32) -> bool {
 // - b: The expected string.
 // Returns: true if the converted value matches the expected value, false otherwise.
 pub fn parse_u32_to_string(a: &u32, b: &str) -> bool {
-    let parsed_string: String = a.to_string();
+    let parsed_string: String = a.to_string();  // Converts a u32 to a string representation
     parsed_string.eq(b)
 }
 
